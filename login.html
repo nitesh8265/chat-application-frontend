@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login & Signup</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #fbc2eb, #a6c0fe);
+        }
+        .container {
+            display: flex;
+            width: 600px;
+            height: 400px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .form-container {
+            width: 50%;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+        .sign-up {
+            transform: translateX(100%);
+        }
+        .container.active .sign-up {
+            transform: translateX(0);
+        }
+        .sign-in {
+            transform: translateX(0);
+        }
+        .container.active .sign-in {
+            transform: translateX(-100%);
+        }
+        .form-container h2 {
+            margin: 0 0 20px;
+            font-size: 24px;
+        }
+        .form-container input {
+            width: calc(100% - 20px);
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background: #5cb85c;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .form-container button:hover {
+            background: #4cae4c;
+        }
+        .toggle-button {
+            position: absolute;
+            top: 50%;
+            right: -50%;
+            transform: translateY(-50%);
+            width: 200%;
+            height: 100%;
+            background: #fbc2eb;
+            transition: transform 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .toggle-button div {
+            text-align: center;
+        }
+        .toggle-button div h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #fff;
+        }
+        .toggle-button div p {
+            color: #fff;
+        }
+        .container.active .toggle-button {
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-in">
+            <h2>Sign In</h2>
+            <input type="email" placeholder="Email" />
+            <input type="password" placeholder="Password" />
+            <button type="button">Sign In</button>
+        </div>
+        <div class="form-container sign-up">
+            <h2>Sign Up</h2>
+            <input type="text" placeholder="Name" />
+            <input type="email" placeholder="Email" />
+            <input type="password" placeholder="Password" />
+            <button type="button"><a href="index.html">Sign Up</a></button>
+        </div>
+        <div class="toggle-button" id="toggle-button">
+            <div>
+                <h3>New Here?</h3>
+                <p>Sign up now</p>
+            </div>
+            <div>
+                <h3>Already a Member?</h3>
+                <p>Log in</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('toggle-button').addEventListener('click', () => {
+            document.getElementById('container').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
